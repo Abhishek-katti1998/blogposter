@@ -1,41 +1,30 @@
-import logo from "./logo.svg";
+import React, { useCallback, useEffect, useState, Component } from "react";
+// import MyMapComponent from '../'
+import ReactDOM from "react-dom";
+import Car from "./Todos/Todo";
+import Todos from "./Todos/Todo";
 import "./App.css";
-import Header from "./header/header";
-import { useSelector } from "react-redux";
-import Model from "./model/model";
-import BackDrop from "./backdrop/backdrop";
-import Card from "./UI/card/card";
-import Content from "./content/content";
-import PostContainer from "./UI/PostContainer";
-import Edit from "./UI/Edit/Edit";
-import CommentBox from "./UI/comment/commentBox";
+import MyMapComponent from "./Map/map";
 
-function App() {
-  const showModel = useSelector((sel) => sel.showModel);
-  const showCommentBox = useSelector((sel) => sel.showCommentBox);
-  const edit = useSelector((sel) => sel.edit);
+const App = () => {
   return (
     <>
-      <Header />
-      {showModel ? (
-        <Model>
-          <PostContainer />
-        </Model>
-      ) : null}
-      {edit ? (
-        <Model>
-          <Edit />
-        </Model>
-      ) : null}
-      {showCommentBox ? (
-        <Model>
-          <CommentBox />
-        </Model>
-      ) : null}
-      {showModel || edit || showCommentBox ? <BackDrop /> : null}
-      <Content />
+      {/* <SimpleMap /> */}
+      <div className="map">
+        <MyMapComponent />
+      </div>
+
+      {/* <form>
+        <input onChange={debounceDecorator(debounce)("value")}></input>
+      </form>
+      <Todos todos={todos} addTodo={addTodo} />
+      <hr />
+      <div>
+        Count: {count}
+        <button onClick={increment}>+</button>
+      </div> */}
     </>
   );
-}
+};
 
 export default App;
